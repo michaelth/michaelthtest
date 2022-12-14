@@ -21,6 +21,6 @@ jobs:
         with:
           python-version: '3.x'
       - name: Initialize CodeQL
-        uses: github/codeql-actions/init@v2
+        uses: github/codeql-action/init@v2
         with:
           languages: python
