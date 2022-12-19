@@ -38,4 +38,4 @@ jobs:
       - name: "Print custom action's outputs"
         env:
           TEST_OUTPUT: "test"
-        run: echo "${{ steps.random-number-generator.outputs.random-id }}"
+        run: echo "${{ steps.random-number-generator.outputs.* }}"
