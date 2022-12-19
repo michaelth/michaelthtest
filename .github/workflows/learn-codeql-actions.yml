@@ -2,7 +2,7 @@ name: learn-codeql
 run-name: ${{ github.actor }} is learning CodeQL GitHub Actions
 on: 
   push:
-    branches: [master]
+    branches: [testbranch]
     paths-ignore:
       - '**/*/txt'
       - '**/*.md'

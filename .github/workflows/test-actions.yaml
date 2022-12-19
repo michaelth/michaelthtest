@@ -7,7 +7,7 @@ jobs:
     runs-on: [self-hosted, ubuntu, test]
     steps:
       - name: Setup Node.js environment
-      - uses: actions/setup-node@v3.5.1
+        uses: actions/setup-node@v3.5.1
         with:
           # Set always-auth in npmrc.
           # always-auth: # optional, default is false
@@ -29,3 +29,5 @@ jobs:
           # cache: # optional
           # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
           # cache-dependency-path: # optional
+      - name: Custom action steps. 
+        uses: ./.github/actions/hello-world-action
