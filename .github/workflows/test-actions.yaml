@@ -35,3 +35,5 @@ jobs:
         uses: ./.github/actions/hello-world-action
         with:
           level: 9000
+      - name: "Print custom action's outputs"
+        run: echo "$GITHUB_OUTPUT"
