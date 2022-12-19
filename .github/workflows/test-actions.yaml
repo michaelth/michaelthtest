@@ -36,4 +36,6 @@ jobs:
         with:
           level: 9000
       - name: "Print custom action's outputs"
+        env:
+          TEST_OUTPUT: ${{ steps.random-number-generator.outputs.random-id }}
         run: echo "$GITHUB_OUTPUT"
