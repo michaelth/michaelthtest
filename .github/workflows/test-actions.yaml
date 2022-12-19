@@ -38,4 +38,4 @@ jobs:
       - name: "Print custom action's outputs"
         env:
           TEST_OUTPUT: "test"
-        run: echo "$TEST_OUTPUT and $random-number and $GITHUB_OUTPUT"
+        run: echo "$TEST_OUTPUT and $random-number and $GITHUB_OUTPUT and $print_output"
