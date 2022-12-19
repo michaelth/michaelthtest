@@ -4,9 +4,20 @@ outputs:
   random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
+inputs:
+  level:
+    description: 'provided level'
+    required: true
+  numOfTests: 
+    description: 'Number amout of test runs'
+    required: false
+    default: '1'
 runs:
   using: "composite"
   steps:
     - id: random-number-generator
       run: echo "random-id=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+      shell: bash
+    - id: random-test
+      run: echo "$INPUT_LEVEL and $INPUT_NUMOFTESTS"
       shell: bash
