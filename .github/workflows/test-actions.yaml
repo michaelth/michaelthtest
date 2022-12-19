@@ -38,4 +38,4 @@ jobs:
       - name: "Print custom action's outputs"
         env:
           TEST_OUTPUT: ${{ steps.random-number-generator.outputs.random-id }}
-        run: echo "$GITHUB_OUTPUT"
+        run: echo "$TEST_OUTPUT"
