@@ -1,41 +1,20 @@
-name: Node CI
-
-on: [push]
+name: Context testing
+on: push
 
 jobs:
-  build:
-    runs-on: [self-hosted, ubuntu, test]
+  dump_contexts_to_log:
+    runs-on: ubuntu-latest
     steps:
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3.5.1
-        with:
-          # Set always-auth in npmrc.
-          # always-auth: # optional, default is false
-          # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
-          node-version: '14' # optional
-          # File containing the version Spec of the version to use.  Examples: .nvmrc, .node-version, .tool-versions.
-          # node-version-file: # optional
-          # Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
-          # architecture: # optional
-          # Set this option if you want the action to check for the latest available version that satisfies the version spec.
-          # check-latest: # optional
-          # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN.
-          # registry-url: # optional
-          # Optional scope for authenticating against scoped registries. Will fall back to the repository owner when using the GitHub Packages registry (https://npm.pkg.github.com/).
-          # scope: # optional
-          # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
-          # token: # optional, default is ${{ github.token }}
-          # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
-          # cache: # optional
-          # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
-          # cache-dependency-path: # optional
-      - name: Checkout custom code
-        uses: actions/checkout@v3
-      - name: Custom action steps. 
-        uses: ./.github/actions/hello-world-action
-        with:
-          level: 9000
-      - name: "Print custom action's outputs"
-        env:
-          TEST_OUTPUT: "test"
-        run: echo "${{ steps.random-number-generator.outputs.* }}"
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
+      - name: Dump job context
+        run: echo '${{ toJSON(job) }}'
+      - name: Dump steps context
+        run: echo '${{ toJSON(steps) }}'
+      - name: Dump runner context
+        run: echo '${{ toJSON(runner) }}'
+      - name: Dump strategy context
+        run: echo '${{ toJSON(strategy) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(matrix) }}'
