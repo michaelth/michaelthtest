@@ -1,6 +1,8 @@
 name: Context testing
-on: push
-
+on: 
+  push:
+    branches:
+      - "testbranch/**"
 jobs:
   dump_contexts_to_log:
     runs-on: [self-hosted, ubuntu]
@@ -17,4 +19,4 @@ jobs:
         with:
           level: 200
       - name: Print custom output 2
-        run: echo "$GITHUB_OUTPUT"
+        run: echo "${{ steps.run_tests.outputs.)}}
