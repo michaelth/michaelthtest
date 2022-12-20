@@ -10,11 +10,11 @@ jobs:
         run: echo "${{ github.repository_owner_id }} OR $GITHUB_REPOSITORY_OWNER"
       - name: Dump job context
         run: echo '${{ toJSON(job) }}'
-      - name: Dump steps context
-        run: echo '${{ toJSON(steps) }}'
-      - name: Dump runner context
-        run: echo '${{ toJSON(runner) }}'
-      - name: Dump strategy context
-        run: echo '${{ toJSON(strategy) }}'
-      - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
+      - name: test something here
+        run: echo 'hello'
+      - name: Run custom actions
+        uses: ./.github/actions/hello-world-action/
+        with:
+          level: 200
+      - name: Print custom output
+        run: echo "$GITHUB_OUTPUT"
