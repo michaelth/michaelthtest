@@ -19,4 +19,11 @@ jobs:
           namespace: default
           manifests:
             kubernetes/service.yaml
+      - name: Delete first manifest from cluster?
+        uses: azure/k8s-deploy@v1
+        with:
+          namespace: default
+          action: reject
+          manifests:
+            kubernetes/service.yaml
     
