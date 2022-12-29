@@ -1,5 +1,5 @@
 name: Test-k8s-deployment
-description: First tests on deploying to a k8s cluster during action workflow
+#description: First tests on deploying to a k8s cluster during action workflow
 on: push
 
 jobs:
