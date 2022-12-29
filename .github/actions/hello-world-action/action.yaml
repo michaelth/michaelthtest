@@ -25,5 +25,5 @@ runs:
       run: echo "${{ steps.random-number-generator.outputs.random-id }}"
       shell: bash
     - id: random-test
-      run: echo "$(( github.event.inputs.level)) and $(( github.event.inputs.numOfTests ))"
+      run: echo "$(( inputs.level)) and $(( inputs.numOfTests ))"
       shell: bash
