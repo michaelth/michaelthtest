@@ -17,6 +17,6 @@ jobs:
         id: mycustomaction
         uses: ./.github/actions/hello-world-action/
         with:
-          level: 200
+          level: "200"
       - name: Print custom output 2
         run: echo "Random number = ${{ steps.mycustomaction.outputs.random-number }}"
