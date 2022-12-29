@@ -1,8 +1,5 @@
 name: Context testing
-on: 
-  push:
-    branches:
-      - "testbranch/**"
+on: push
 jobs:
   dump_contexts_to_log:
     runs-on: [self-hosted, ubuntu]
@@ -15,8 +12,9 @@ jobs:
       - name: test something here
         run: echo 'hello'
       - name: Run custom actions
+        id: mycustomaction
         uses: ./.github/actions/hello-world-action/
         with:
           level: 200
       - name: Print custom output 2
-        run: echo "${{ steps.run_tests.outputs.)}}
+        run: echo "${{ steps.mycustomaction.outputs.random-number)}}

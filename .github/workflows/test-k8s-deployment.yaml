@@ -1,6 +1,11 @@
 name: Test-k8s-deployment
 #description: Second tests on deploying to a k8s cluster during action workflow
-on: push
+on: 
+  push:
+    branches: [testbranch]
+    paths-ignore:
+      - '**/*/txt'
+      - '**/*.md'
 
 jobs:
   deploy-to-k8s-locally:
