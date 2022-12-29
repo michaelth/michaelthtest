@@ -16,10 +16,10 @@ runs:
   using: "composite"
   steps:
     - id: print_default
-      run: echo "$GITHUB_OUTPUT"
+      run: echo "${{ GITHUB_OUTPUT }}"
       shell: bash
     - id: random-number-generator
-      run: echo "random-id=$(echo $RANDOM)"
+      run: echo "random-id=$(echo $RANDOM)" >> $GITHUB_OUTPUT
       shell: bash
     - id: print_output
       run: echo "${{ steps.random-number-generator.outputs.random-id }}"
